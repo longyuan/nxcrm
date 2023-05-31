@@ -12,6 +12,6 @@ class Attachment extends Model
 
 	public function contract()
     {
-        return $this->belongsTo(contract::class);
+        return $this->belongsTo(CrmContract::class);
     }
 }

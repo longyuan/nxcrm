@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\CrmContract;
 use App\Models\CrmEvent;
 use App\Models\CrmContact;
 use App\Models\CrmCustomer;
@@ -51,7 +52,11 @@ class EventController extends AdminController
             })->link(function () {
                 return admin_url('contacts/' . $this->crm_contact_id);
             });
-
+            $grid->crm_contract_id('合同')->display(function ($id) {
+                return optional(CrmContract::find($id))->id;
+            })->link(function () {
+                return admin_url('contracts/' . $this->crm_contract_id);
+            });
             $grid->created_at('跟进时间')->sortable();
             $grid->disableBatchActions();
             $grid->disableCreateButton();

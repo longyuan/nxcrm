@@ -29,7 +29,16 @@ class AttachmentController extends AdminController
     {
         return Grid::make(new Attachment(), function (Grid $grid) {
             $grid->id->sortable();
-            $grid->files;
+            $grid->files()->display(function ($images) {
+                return json_decode($images, true);
+                })
+                ->if(function (){
+                    return $this->electronic ==1;
+                })->then(function (Grid\Column $column){
+                    return $column->image('',80,80);
+                })->else(function (Grid\Column $column){
+                    return $column->downloadable();
+                });
             $grid->crm_customer_id;
             $grid->crm_contract_id;
             $grid->electronic;

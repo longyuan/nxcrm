@@ -81,7 +81,7 @@ class CrmPerformance extends Card
                 $query->where('admin_user_id', Admin::user()->id);
             })->whereDate('signdate', date('y-m-d'))->sum('total');
 
-        $dailydata = collect(['add_contract' => $add_contract, 'add_customer' => $add_customer, 'add_opportunity' => $add_opportunity, 'add_receipt_sum' => $add_receipt_sum, 'add_opportunity_sum' => $add_opportunity_sum, 'add_contract_sum' => $add_contract_sum]);
+        $dailydata = collect(['add_contract' => $add_contract, 'add_customer' => $add_customer, 'add_opportunity' => $add_opportunity, 'add_receipt_sum' => $add_receipt_sum, 'add_contract_sum' => $add_contract_sum, 'add_opportunity_sum' => $add_opportunity_sum]);
 
 
         $this->withContent(view('admin.metrics.examples.performance', compact('programs','dailydata')));

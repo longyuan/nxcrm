@@ -17,23 +17,19 @@
         background-color: #f0f0ff;
         border-radius: 3px;
     }
-
 </style>
 
-
 <div class="card-body performance">
-
-
     @foreach ($programs as $k => $v)
-
 @php
-if ($v && $dailydata[$k]) {
-   $value = intval(($dailydata[$k]/$v)*100);
-   $value1 = intval((intval($dailydata[$k])/intval($v))*100);
-}else {
-   $value = 0;
-   $value1 = 0;
-}
+    if ($v && $dailydata[$k]) {
+    $v = str_replace(',','',$v);
+    $value = intval(($dailydata[$k]/$v)*100);
+    $value1 = intval((intval($dailydata[$k])/(float)($v))*100);
+    }else {
+    $value = 0;
+    $value1 = 0;
+    }
 @endphp
 
 
