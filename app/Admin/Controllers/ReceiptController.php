@@ -195,7 +195,7 @@ CSS;
                 ->title('选择当前收款所属合同')
                 ->dialogWidth('50%') // 弹窗宽度，默认 800px
                 ->from(ContractTable::make(['id' => request('crm_contract_id')])) // 设置渲染类实例，并传递自定义参数
-                ->model(CrmContract::class, 'id', 'title')
+                ->model(CrmContract::class, 'id', 'crm_customer_id')
                 ->required();// 设置编辑数据显示
             if ($form->isCreating()){
                 # 新建时，初始化对应合同
