@@ -10,7 +10,8 @@ class CrmInvoice extends Model
 {
     use HasDateTimeFormatter;
     protected $table = 'crm_invoices';
-    protected $fillable = ['state'];
+    protected $fillable = ['state','crm_contract_id'];
+
     public function CrmReceipt()
     {
         return $this->belongsTo(CrmReceipt::class);

@@ -199,7 +199,7 @@ CSS;
                 ->required();// 设置编辑数据显示
             if ($form->isCreating()){
                 # 新建时，初始化对应合同
-                $selectTable->default(request('contract_id'));
+                $selectTable->default(request('crm_contract_id'));
             }
 
             $form->text('remark')->required();
@@ -209,8 +209,8 @@ CSS;
                     // 值为1和4时显示文本框
                     $form->divider();
 
-                    $form->currency('invoice.money', '开票金额')->attribute('min', 1);
-                    $form->select('invoice.type', '开票类型')
+                    $form->currency('crm_invoice.money', '开票金额')->attribute('min', 1);
+                    $form->select('crm_invoice.type', '开票类型')
                         ->options([
                             1 => '增值税普通发票',
                             2 => '增值税专用发票',
@@ -218,30 +218,30 @@ CSS;
                             // 4 => '地税通用机打发票',
                             5 => '收据'
                         ]);
-                    $form->hidden('invoice.state')->value(0);
+                    $form->hidden('crm_invoice.state')->value(0);
                     $form->fieldset('发票信息', function (Form $form) {
-                        $form->radio('invoice.title_type', '抬头类型')
+                        $form->radio('crm_invoice.title_type', '抬头类型')
                             ->when(1, function (Form $form) {
-                                $form->text('invoice.tin', '纳税人识别号');
-                                $form->text('invoice.bank_name', '开户行');
-                                $form->text('invoice.bank_account', '开户账号');
-                                $form->text('invoice.address', '开票地址');
+                                $form->text('crm_invoice.tin', '纳税人识别号');
+                                $form->text('crm_invoice.bank_name', '开户行');
+                                $form->text('crm_invoice.bank_account', '开户账号');
+                                $form->text('crm_invoice.address', '开票地址');
                             })
                             ->options([
                                 1 => '单位',
                                 2 => '个人',
                             ])
                             ->default('1');
-                        $form->text('invoice.title', '发票抬头');
-                        $form->mobile('invoice.phone', '电话');
+                        $form->text('crm_invoice.title', '发票抬头');
+                        $form->mobile('crm_invoice.phone', '电话');
                     });
 
                     $form->fieldset('邮寄信息', function (Form $form) {
-                        $form->text('invoice.contact_name', '联系人');
-                        $form->mobile('invoice.contact_phone', '联系电话');
-                        $form->text('invoice.contact_address', '邮寄地址');
+                        $form->text('crm_invoice.contact_name', '联系人');
+                        $form->mobile('crm_invoice.contact_phone', '联系电话');
+                        $form->text('crm_invoice.contact_address', '邮寄地址');
                     });
-                    $form->hidden('invoice.contract_id');
+                    $form->hidden('crm_invoice.crm_contract_id');
                 })
                 ->options(
                     [
@@ -256,24 +256,24 @@ CSS;
             //     return $form->input('invoice.contract_id');
             // });
             $form->saving(function (Form $form) {
-                $invoice = $form->invoice;
-                $invoice['contract_id'] = $form->contract_id;
-                $form->invoice = $invoice;
+                $invoice = $form->crm_invoice;
+                $invoice['crm_contract_id'] = $form->crm_contract_id;
+                $form->crm_invoice = $invoice;
                 if ($form->billtype === '0' || $form->billtype === '2' ) {
-                    $form->deleteInput('invoice.money');
-                    $form->deleteInput('invoice.contract_id');
-                    $form->deleteInput('invoice.type');
-                    $form->deleteInput('invoice.state');
-                    $form->deleteInput('invoice.title_type');
-                    $form->deleteInput('invoice.tin');
-                    $form->deleteInput('invoice.bank_name');
-                    $form->deleteInput('invoice.bank_account');
-                    $form->deleteInput('invoice.address');
-                    $form->deleteInput('invoice.title');
-                    $form->deleteInput('invoice.phone');
-                    $form->deleteInput('invoice.contact_name');
-                    $form->deleteInput('invoice.contact_phone');
-                    $form->deleteInput('invoice.contact_address');
+                    $form->deleteInput('crm_invoice.money');
+                    $form->deleteInput('crm_invoice.crm_contract_id');
+                    $form->deleteInput('crm_invoice.type');
+                    $form->deleteInput('crm_invoice.state');
+                    $form->deleteInput('crm_invoice.title_type');
+                    $form->deleteInput('crm_invoice.tin');
+                    $form->deleteInput('crm_invoice.bank_name');
+                    $form->deleteInput('crm_invoice.bank_account');
+                    $form->deleteInput('crm_invoice.address');
+                    $form->deleteInput('crm_invoice.title');
+                    $form->deleteInput('crm_invoice.phone');
+                    $form->deleteInput('crm_invoice.contact_name');
+                    $form->deleteInput('crm_invoice.contact_phone');
+                    $form->deleteInput('crm_invoice.contact_address');
                 }
                 if ($form->receive) {
                     $form->receive = str_replace(',', '', $form->receive);
