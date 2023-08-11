@@ -243,7 +243,7 @@ class InvoiceController extends AdminController
     protected function state(CrmInvoice $invoice, Request $request)
     {
         $request->validate([
-            'state' => 'required|max:1)'
+            'state' => 'required|max:1'
         ]);
         $invoice->update([
             'state' => $request->state,
