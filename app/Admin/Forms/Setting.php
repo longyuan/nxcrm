@@ -58,7 +58,6 @@ class Setting extends Form
         return [
             'logo' => admin_setting('logo', public_path().'/static/img/logo.png'),
             'color' => admin_setting('color', 'green'),
-            'body_class' => admin_setting('body_class', 'sidebar-separate'),
             'sidebar_style' => admin_setting('sidebar_style', 'light'),
             'body_class' => admin_setting('body_class', 'sidebar-separate'),
             'logintheme' => admin_setting('logintheme', 'bigpicture'),

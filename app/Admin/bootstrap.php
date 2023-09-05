@@ -89,13 +89,14 @@ admin_inject_section(Admin::SECTION['NAVBAR_USER_PANEL'], function () {
 
 //  复写站点配置
 $site_url = admin_setting('crmurl');
-$logo = '<img src="'.$site_url.'storage/'.admin_setting('logo').'"> &nbsp;'.admin_setting('crmname');
+$logo_img = admin_setting('logo')?$site_url.'storage/'.admin_setting('logo'):asset('static/img/logo.png');
+$logo = '<img src="'.$logo_img.'"> &nbsp;'.admin_setting('crmname',config('admin.name'));
 
-$logo_mini = '<img src="'.$site_url.'storage/'.admin_setting('logo').'">';
+$logo_mini = '<img src="'.$logo_img.'">';
 config([
     'app.url' => admin_setting('crmurl'),
-    'admin.title' => admin_setting('crmname'),
-    'admin.name' => admin_setting('crmname'),
+    'admin.title' => admin_setting('crmname',config('admin.name')),
+    'admin.name' => admin_setting('crmname',config('admin.name')),
     'admin.logo' => $logo,
     'admin.logo-mini' => $logo_mini,
     'admin.layout.body_class' => 'default',

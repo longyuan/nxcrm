@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/static/css/login.css">
+<link rel="stylesheet" href="{{asset('static/css/login.css')}}">
 <style>
 .login_main {
   position: relative;
@@ -17,7 +17,7 @@
         <div class="login-page">
 
             <div class="auth-brand text-center text-lg-left">
-                <img src="/storage/{!! admin_setting('logo', public_path().'/static/img/logo.png') !!}" width="35"> &nbsp;{!! admin_setting('crmname', 'NXCRM客户管理系统') !!}
+                <img src="{{ admin_setting('logo') ? ('/storage/'.admin_setting('logo')):'/static/img/logo.png' }}" width="35"> &nbsp;{!! admin_setting('crmname', 'NXCRM客户管理系统') !!}
             </div>
 
             <div class="login-box">
