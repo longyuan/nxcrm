@@ -51,12 +51,10 @@ class Setting extends Form
     }
 
 
-    public function
-    default()
+    public function default()
     {
-
         return [
-            'logo' => admin_setting('logo', public_path().'/static/img/logo.png'),
+            'logo' => admin_setting('logo', asset('/static/img/logo.png')),
             'color' => admin_setting('color', 'green'),
             'sidebar_style' => admin_setting('sidebar_style', 'light'),
             'body_class' => admin_setting('body_class', 'sidebar-separate'),
