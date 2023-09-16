@@ -44,14 +44,14 @@ if(admin_setting('style_type') == 1){
 
 admin_inject_section('isadmin', function () {
     $setting_menu = [
-        'admin/settings/setting',
-        'admin/settings/highseas',
-        'admin/settings/companys',
-        'admin/auth/users',
-        'admin/auth/roles',
-        'admin/products',
-        'admin/customfields',
-        'admin/modelcontracts'
+        config('admin.route.prefix').'/settings/setting',
+        config('admin.route.prefix').'/settings/highseas',
+        config('admin.route.prefix').'/settings/companys',
+        config('admin.route.prefix').'/auth/users',
+        config('admin.route.prefix').'/auth/roles',
+        config('admin.route.prefix').'/products',
+        config('admin.route.prefix').'/customfields',
+        config('admin.route.prefix').'/modelcontracts'
     ];
     $route = request()->path();
     $isadmin = in_array($route, $setting_menu);
