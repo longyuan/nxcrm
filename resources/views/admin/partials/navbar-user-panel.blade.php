@@ -11,18 +11,18 @@
     </a>
     <div class="dropdown-menu dropdown-menu-right">
         <a href="javascript:void(0)" class="dropdown-item"
-            onclick="javascript:window.location.href='/admin/auth/setting'">
+            onclick="javascript:window.location.href='{{ admin_url('auth/setting') }}'">
             <i class="feather icon-user"></i> {{ trans('admin.setting') }}
         </a>
         <div class="dropdown-divider"></div>
         @if (Admin::user()->isAdministrator())
         @if (admin_section('isadmin', false))
-        <a href="javascript:void(0)" class="dropdown-item" onclick="javascript:window.location.href='/admin'">
+        <a href="javascript:void(0)" class="dropdown-item" onclick="javascript:window.location.href='{{ admin_url('/') }}'">
             <i class="feather icon-layers"></i> {{ trans('admin.home') }}
         </a>
         <div class="dropdown-divider"></div>
         @else
-        <a href="javascript:void(0)" class="dropdown-item" onclick="javascript:window.location.href='/admin/settings/setting'">
+        <a href="javascript:void(0)" class="dropdown-item" onclick="javascript:window.location.href='{{ admin_url('settings/setting') }}'">
             <i class="feather icon-layers"></i> {{ trans('admin.admin_setting') }}
         </a>
         <div class="dropdown-divider"></div>
