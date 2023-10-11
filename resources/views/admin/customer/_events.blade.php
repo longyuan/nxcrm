@@ -58,23 +58,18 @@
                     <span>{{$event['updated_at']->format('m-d')}}</span>
                     <span class="time_hi">{{$event['updated_at']->format('H:i')}}</span></div>
                 <div class="col-md-2 col-sm-2 col-12"><img class="avatar"
-                        src="{{isset($event->adminUser->avatar) ? '/storage/'.$event->adminUser->avatar : config('admin.default_avatar')}}"
+                        src="{{App\Support\Common::getCoverPath($event->adminUser?->avatar , config('admin.default_avatar')) }}"
                         alt="{{$event['admin_user_id']}}"></div>
                 <div class="col-md-8 col-sm-8 col-12 content">
                     <div class="row">
-
                         <div class="col-md-11 col-sm-11 col-12">
                             <div class="row">
                                 {{$event['content']}}
                             </div>
                             <div class="row eventsviewinfo">
-
                                 <span>联系人：{{$event['crm_contact_id']!=null ? optional($event->CrmContact)->name : '未知'}}</span>
                             </div>
                         </div>
-
-
-
                         @if ($ifrole )
                         <div class="col-md-1 col-sm-1 col-12 tools">
                             <form id="del-events" action="{{ admin_route('events.destroy', [$event->id]) }}"
@@ -89,10 +84,7 @@
                     </div>
                 </div>
             </div>
-
-
             @endforeach
-
         </div>
     </div>
 </div>

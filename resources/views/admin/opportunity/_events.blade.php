@@ -10,7 +10,7 @@
                 <span>{{date("m-d")}}</span>
                 <span class="time_hi">{{date("H:i")}}</span>
             </div>
-            <div class="col-md-2 col-sm-2 col-12"><img class="avatar" src="/storage/{{Admin::user()->avatar}}"
+            <div class="col-md-2 col-sm-2 col-12"><img class="avatar" src="{{ App\Support\Common::getCoverPath(Admin::user()->avatar,config('admin.default_avatar'))}}"
                     alt=""><span class="users">{{Admin::user()->name}}</span></div>
             <div class="col-md-8 col-sm-8 col-12 content">
                 <div class="row">

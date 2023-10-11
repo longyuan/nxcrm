@@ -58,7 +58,7 @@
             <i class="fa fa-circle"></i>
             <span>{{$event['updated_at']->format('m-d')}}</span>
             <span class="time_hi">{{$event['updated_at']->format('H:i')}}</span></div>
-        <div class="col-md-2 col-sm-2 col-12"><img class="avatar" src="/storage/{{$adminUser['avatar']}}" alt=""><span
+        <div class="col-md-2 col-sm-2 col-12"><img class="avatar" src="{{ App\Support\Common::getCoverPath($adminUser['avatar'] ,config('admin.default_avatar'))}}" alt=""><span
                 class="users">{{$adminUser['name']}}</span></div>
         <div class="col-md-8 col-sm-8 col-12 content">
             <div class="row">
@@ -73,17 +73,12 @@
                         <button type="submit" class="btn btn-sm btn-danger delete-btn"><i
                                 class="feather icon-trash"></i></button>
                     </form>
-
-
-
                 </div>
             </div>
         </div>
     </div>
     @endif
-
     @endforeach
-
 </div>
 
 <script>
@@ -96,5 +91,4 @@
             validate: true,
         });
     });
-
 </script>
