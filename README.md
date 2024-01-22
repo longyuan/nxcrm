@@ -35,6 +35,7 @@ https://crm.demo.nxime.com
 
 安装教程见 https://gitee.com/shebaoting/nxcrm/wikis/
 
+账号密码 admin/lyadmin123
 
  ## 其他说明
   ---

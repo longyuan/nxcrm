@@ -7,7 +7,7 @@ use App\models\CrmCustomer;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CustomerPolicy
+class CrmCustomerPolicy
 {
     use HandlesAuthorization;
 
@@ -23,9 +23,9 @@ class CustomerPolicy
 
     public function update(Administrator $currentUser, CrmCustomer $Customer)
     {
-        // return $currentUser->id === $Customer->admin_user_id
-        //     ? Response::allow()
-        //     : Response::deny('You do not own this post.');
-        return true;
+         return $currentUser->id === $Customer->admin_user_id
+             ? Response::allow()
+             : Response::deny('You do not own this post.');
+        //return true;
     }
 }
