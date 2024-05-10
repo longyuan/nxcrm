@@ -80,7 +80,7 @@ class BuildContractsController extends Controller
                     ->title('选择当前发票所属合同')
                     ->dialogWidth('50%') // 弹窗宽度，默认 800px
                     ->from(ContractTable::make(['id' => $step->getKey()])) // 设置渲染类实例，并传递自定义参数
-                    ->model(CrmContract::class, 'id', 'title') // 设置编辑数据显示
+                    ->model(CrmContract::class, 'id', 'crm_customer_id') // 设置编辑数据显示
                     ->default($this->contract_id);
 
                 $step->selectTable('model_contract_id', '合同范本')
