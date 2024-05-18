@@ -53,7 +53,7 @@ $compliances_num = $compliances->count();
                         <div class="media">
                             <i class="feather icon-check-circle text-success"></i>
                             <div class="media-body">
-                                <h6 class="my-0 text-success font-weight-bold">{{$value->content}}</h6>
+                                <h6 class="my-0 text-success font-weight-bold">{{$value->content}}[￥{{$value->receipt}}]</h6>
                                 <p class="text-success mb-0">{{$value->date}}</p>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ $compliances_num = $compliances->count();
                     <div class="media">
                         <i class="feather icon-clock text-primary"></i>
                         <div class="media-body">
-                            <h6 class="my-0 text-primary font-weight-bold">{{$value->content}}</h6>
+                            <h6 class="my-0 text-primary font-weight-bold">{{$value->content}}[￥{{$value->receipt}}]</h6>
                             <p class="text-primary mb-0">{{$value->date}}</p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ $compliances_num = $compliances->count();
                     <div class="media">
                         <i class="feather icon-alert-circle text-muted"></i>
                         <div class="media-body">
-                            <h6 class="my-0 text-muted">{{$value->content}}</h6>
+                            <h6 class="my-0 text-muted">{{$value->content}}[￥{{$value->receipt}}]</h6>
                             <p class="text-muted mb-0">{{$value->date}}</p>
                         </div>
                     </div>

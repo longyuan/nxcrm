@@ -308,7 +308,7 @@ class ContractController extends AdminController
     protected function nodes(CrmContract $id, Request $request)
     {
         $request->validate([
-            'nodes' => 'required|max:1)'
+            'nodes' => 'required|max:1'
         ]);
         $id->update([
             'nodes' => $request->nodes,
